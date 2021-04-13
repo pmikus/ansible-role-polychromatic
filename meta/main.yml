@@ -1,0 +1,33 @@
+---
+# file: meta/main.yaml
+
+dependencies: [ ansible-role-openrazer ]
+
+galaxy_info:
+  role_name: polychromatic
+  author: pmikus
+  description: Polychromatic for Linux.
+  company: none
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.4
+  platforms:
+    - name: Debian
+      versions:
+        - stretch
+        - buster
+    - name: Ubuntu
+      versions:
+        - xenial
+        - bionic
+        - cosmic
+        - disco
+        - eoan
+        - focal
+        - groovy
+        - hirsute
+  galaxy_tags:
+    - polychromatic
+    - razer
+    - mice
+    - keyboards
+    - chroma

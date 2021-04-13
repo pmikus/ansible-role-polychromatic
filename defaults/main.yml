@@ -1,0 +1,11 @@
+---
+# file: defaults/main.yaml
+
+polychromatic_package: "polychromatic"
+polychromatic_package_state: "present"
+
+# Used only for Debian/Ubuntu.
+# Channel can be one of: "stable" or "testing" or "edge".
+polychromatic_apt_release_channel: "stable"
+polychromatic_apt_url: "ppa:polychromatic/{{ polychromatic_apt_release_channel }}"
+polychromatic_apt_state: "present"

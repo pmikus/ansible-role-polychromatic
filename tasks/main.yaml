@@ -1,0 +1,13 @@
+---
+# file: tasks/main.yaml
+
+- include_tasks: "{{ ansible_distribution|lower }}.yaml"
+  tags:
+    - polychromatic-inst-dependencies
+
+- name: Install Polychromatic.
+  package:
+    name: "{{ polychromatic_package }}"
+    state: "{{ polychromatic_package_state }}"
+  tags:
+    - polychromatic-inst
