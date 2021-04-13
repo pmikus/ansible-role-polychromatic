@@ -48,7 +48,7 @@ jobs:
         ANSIBLE_FORCE_COLOR: '1'
 
   code_quality:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-18.04
 
     steps:
     - name: Checkout source code
