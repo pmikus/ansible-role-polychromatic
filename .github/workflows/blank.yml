@@ -22,7 +22,7 @@ jobs:
     strategy:
       max-parallel: 6
       matrix:
-        IMAGE: [ubuntu-20.10, ubuntu-20.04, ubuntu-18.04]
+        IMAGE: [ubuntu-20.04, ubuntu-18.04]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
