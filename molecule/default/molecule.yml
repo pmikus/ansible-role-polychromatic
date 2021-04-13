@@ -9,7 +9,7 @@ lint: |
     flake8
 platforms:
   - name: instance
-    image: "geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu-18.04}-ansible:latest"
+    image: "geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu18.04}-ansible:latest"
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
