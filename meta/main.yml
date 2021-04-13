@@ -1,7 +1,7 @@
 ---
 # file: meta/main.yaml
 
-dependencies: [ ansible-role-openrazer ]
+dependencies: [ ]
 
 galaxy_info:
   role_name: polychromatic
