@@ -13,7 +13,7 @@ env:
   global:
     - ROLE_NAME: polychromatic
   jobs:
-    - DISTRO: ubuntu-21.04
+    - DISTRO: ubuntu-20.10
     - DISTRO: ubuntu-20.04
     - DISTRO: ubuntu-18.04
 
@@ -28,7 +28,6 @@ install:
   - pip3 install molecule[docker] docker ansible-lint flake8 testinfra
 
 before_script:
-  # Rename project directory to actual Ansible Galaxy role name and switch to it.
   - cd ../
   - mv ansible-role-$ROLE_NAME pmikus.$ROLE_NAME
   - cd pmikus.$ROLE_NAME
@@ -36,5 +35,3 @@ before_script:
 script:
   - sonar-scanner -Dsonar.projectVersion=$TRAVIS_BRANCH\_$TRAVIS_JOB_NUMBER
   - molecule test
-notifications:
-  webhooks: https://galaxy.ansible.com/api/v1/notifications/?branch=master
