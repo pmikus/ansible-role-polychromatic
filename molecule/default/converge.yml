@@ -4,4 +4,4 @@
   become: true
 
   roles:
-    - role: pmikus.ansible-role-polychromatic
+    - role: pmikus.polychromatic
