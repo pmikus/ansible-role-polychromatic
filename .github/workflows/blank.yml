@@ -47,21 +47,16 @@ jobs:
         PY_COLORS: '1'
         ANSIBLE_FORCE_COLOR: '1'
 
-  code_quality:
-    runs-on: ubuntu-18.04
-
+  sonarcloud:
+    name: SonarCloud
+    runs-on: ubuntu-latest
     steps:
-    - name: Checkout source code
-      uses: actions/checkout@v1
-      with:
-        path: 'pmikus.polychromatic'
-        fetch-depth: 0
-
-    - name: SonarCloud Scan
-      uses: sonarsource/sonarcloud-github-action@master
-      with:
-        args: >
-          -Dsonar.projectVersion=${{ github.ref }}_${{ github.run_number }}
-      env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v2
+        with:
+          path: 'pmikus.polychromatic'
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
