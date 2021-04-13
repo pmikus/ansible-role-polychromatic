@@ -22,7 +22,7 @@
 - name: Add polychromatic repository.
   apt_repository:
     repo: "{{ polychromatic_apt_url }}"
-    state: "{{ {{ polychromatic_apt_state }} }}"
+    state: "{{ polychromatic_apt_state }}"
     update_cache: true
   tags:
     - polychromatic-inst-dependencies
