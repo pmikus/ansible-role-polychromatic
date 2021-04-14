@@ -15,44 +15,58 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  molecule:
+    name: Molecule
     runs-on: ubuntu-latest
     strategy:
-      max-parallel: 6
       matrix:
-        IMAGE: [ubuntu-20.04, ubuntu-18.04]
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+        distro:
+          - ubuntu2004
+          - ubuntu1804
+          - debian10
+          - debian9
     steps:
-    - name: Checkout source code
-      uses: actions/checkout@v1
-      with:
-        path: 'pmikus.polychromatic'
+      - name: Check out the codebase.
+        uses: actions/checkout@v2
+        with:
+          path: 'pmikus.polychromatic'
+      - name: Set up Python 3.
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Install test dependencies.
+        run: pip3 install ansible molecule[docker] docker
+      - name: Run Molecule tests.
+        run: molecule test
+        env:
+          PY_COLORS: '1'
+          ANSIBLE_FORCE_COLOR: '1'
+          MOLECULE_DISTRO: ${{ matrix.distro }}
 
-    - name: Set up Python 3.8
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.8
-
-    - name: Update repo cache, install python3-setuptools and required pip modules
-      run: |
-        sudo apt update
-        sudo apt install python3-setuptools -y
-        sudo apt install dirmngr --install-recommends
-        pip3 install -U pip wheel ansible molecule[docker] docker ansible-lint flake8 pytest-testinfra
-    - name: Execute Molecule test of role for ${{ matrix.IMAGE }}
-      run: DISTRO=${{ matrix.IMAGE }} molecule test
-      env:
-        PY_COLORS: '1'
-        ANSIBLE_FORCE_COLOR: '1'
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the codebase.
+        uses: actions/checkout@v2
+        with:
+          path: 'pmikus.polychromatic'
+      - name: Set up Python 3.
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Install test dependencies.
+        run: pip3 install yamllint
+      - name: Lint code.
+        run: |
+          yamllint .
 
   sonarcloud:
     name: SonarCloud
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - name: Check out the codebase.
+        uses: actions/checkout@v1
         with:
           path: 'pmikus.polychromatic'
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
