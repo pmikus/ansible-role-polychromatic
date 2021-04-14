@@ -9,7 +9,9 @@
       when: ansible_os_family == 'Debian'
 
     - name: FIX apt.
-      package: dirmngr
+      package:
+        name: dirmngr
+        state: present
       when: ansible_os_family == 'Debian'
 
     - name: Wait for systemd to complete initialization.  # noqa 303
