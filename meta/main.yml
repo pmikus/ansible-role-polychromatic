@@ -9,7 +9,7 @@ galaxy_info:
   description: Polychromatic for Linux.
   company: none
   license: "license (BSD, MIT)"
-  min_ansible_version: 2.4
+  min_ansible_version: 2.9
   platforms:
     - name: Debian
       versions:
@@ -17,7 +17,6 @@ galaxy_info:
         - buster
     - name: Ubuntu
       versions:
-        - xenial
         - bionic
         - cosmic
         - disco
