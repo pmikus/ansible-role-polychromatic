@@ -21,6 +21,7 @@ jobs:
     strategy:
       matrix:
         distro:
+          - ubuntu2010
           - ubuntu2004
           - ubuntu1804
     steps:
