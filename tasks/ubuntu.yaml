@@ -1,14 +1,6 @@
 ---
 # file: tasks/ubuntu.yaml
 
-- name: Ensure old versions of Polychromatic are not installed.
-  package:
-    name:
-      - "{{ polychromatic_package }}"
-    state: absent
-  tags:
-    - polychromatic-inst-dependencies
-
 - name: Ensure dependencies are installed.
   apt:
     name:
