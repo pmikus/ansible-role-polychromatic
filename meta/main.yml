@@ -11,16 +11,9 @@ galaxy_info:
   license: "license (BSD, MIT)"
   min_ansible_version: 2.9
   platforms:
-    - name: Debian
-      versions:
-        - stretch
-        - buster
     - name: Ubuntu
       versions:
         - bionic
-        - cosmic
-        - disco
-        - eoan
         - focal
         - groovy
         - hirsute
