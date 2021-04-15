@@ -1,4 +1,6 @@
 ---
+# file: molecule/default/molecule.yaml
+
 dependency:
   name: galaxy
   options:
