@@ -17,3 +17,5 @@ provisioner:
   name: ansible
   playbooks:
     converge: ${MOLECULE_PLAYBOOK:-converge.yml}
+  env:
+    ANSIBLE_ROLES_PATH:/home/runner/.cache/molecule/pmikus.polychromatic/default/roles/ansible-role-openrazer:$ANSIBLE_ROLES_PATH
