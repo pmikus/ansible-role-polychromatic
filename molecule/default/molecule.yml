@@ -3,7 +3,7 @@ dependency:
   name: galaxy
   options:
     # Put roles right to this one. Reduce possible role locations.
-    roles-path: ../
+    roles-path: ../pmikus.polychromatic/molecule/default/roles
 driver:
   name: docker
 lint: |
