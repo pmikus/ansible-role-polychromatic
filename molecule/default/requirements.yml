@@ -1,2 +1,6 @@
 ---
-- src: pmikus.openrazer
+# file: requirements.yaml
+
+roles:
+  - src: "https://github.com/pmikus/ansible-role-openrazer.git"
+    type: "git"
