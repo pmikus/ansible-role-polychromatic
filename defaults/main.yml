@@ -1,6 +1,34 @@
 ---
 # file: defaults/main.yaml
 
+packages: "{{ packages_base + packages_by_distro[ansible_distribution][ansible_distribution_release] + packages_by_arch[ansible_machine] }}"
+
+packages_base:
+  - []
+
+packages_by_distro:
+  Ubuntu:
+    bionic:
+      - "apt-transport-https"
+      - "ca-certificates"
+      - "python3-apt"
+    focal:
+      - "apt-transport-https"
+      - "ca-certificates"
+      - "python3-apt"
+    groovy:
+      - "apt-transport-https"
+      - "ca-certificates"
+      - "python3-apt"
+    hirsute:
+      - "apt-transport-https"
+      - "ca-certificates"
+      - "python3-apt"
+
+packages_by_arch:
+  x86_64:
+    - []
+
 polychromatic_package: "polychromatic"
 polychromatic_package_state: "present"
 

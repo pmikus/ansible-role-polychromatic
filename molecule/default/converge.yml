@@ -6,5 +6,4 @@
   become: true
 
   roles:
-    - role: ansible-role-openrazer
     - role: pmikus.polychromatic
