@@ -2,7 +2,7 @@
 # file: meta/main.yaml
 
 dependencies:
-  - ansible-role-openrazer
+  - pmikus.openrazer
 
 galaxy_info:
   role_name: polychromatic
