@@ -2,5 +2,5 @@
 # file: molecule/default/requirements.yaml
 
 roles:
-  - src: "https://github.com/pmikus/ansible-role-openrazer.git"
-    type: "git"
+  - name: pmikus.openrazer
+    source: https://galaxy.ansible.com
