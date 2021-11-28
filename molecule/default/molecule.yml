@@ -10,7 +10,6 @@ driver:
   name: docker
 lint: |
   yamllint .
-  ansible-lint
 platforms:
   - name: ${DISTRO:-ubuntu-21.10}
     image: "pmikus/docker-${MOLECULE_DISTRO:-ubuntu-21.10}-ansible:latest"
