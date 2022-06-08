@@ -2,7 +2,7 @@
 # file: tasks/ubuntu.yaml
 
 - name: Install Dependencies.
-  apt:
+  ansible.builtin.apt:
     name: "{{ packages | flatten(levels=1) }}"
     state: "present"
     cache_valid_time: 3600
@@ -11,7 +11,7 @@
     - polychromatic-inst-dependencies
 
 - name: Add Polychromatic Repository.
-  apt_repository:
+  ansible.builtin.apt_repository:
     repo: "{{ polychromatic_apt_url }}"
     state: "{{ polychromatic_apt_state }}"
     update_cache: true

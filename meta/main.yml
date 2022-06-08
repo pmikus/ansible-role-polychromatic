@@ -1,5 +1,5 @@
 ---
-# file: meta/main.yaml
+# file: meta/main.yml
 
 dependencies:
   - pmikus.openrazer

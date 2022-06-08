@@ -6,7 +6,7 @@
     - polychromatic-inst-dependencies
 
 - name: Install Polychromatic.
-  package:
+  ansible.builtin.package:
     name: "{{ polychromatic_package }}"
     state: "{{ polychromatic_package_state }}"
   tags:

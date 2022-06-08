@@ -1,5 +1,5 @@
 ---
-# file: molecule/default/requirements.yaml
+# file: molecule/default/requirements.yml
 
 roles:
   - name: pmikus.openrazer
